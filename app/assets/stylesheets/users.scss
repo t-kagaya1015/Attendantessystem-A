@@ -3,20 +3,25 @@
 .user-table {
   vertical-align: middle;
   text-align: center;
-  line-height: 10px
+}
+
+.a.bio.primary {
+ padding-bottom: 20px; 
 }
 
 .p {
-  font-size: 16px;
-  line-height:nolmal;
+  
+  padding-top: 2px;
+  padding-bottom: 5px;
+  font-size: 5px;
+  line-height: 1.5em;
 }
 
 /* ユーザー情報下ボタン */
 
 .btn-users-show {
-  margin-top: -10px;      
-  margin-bottom: 10px;
-  
+  margin-top: -5px;      
+  margin-bottom: -30px;
 }
 /* ユーザー勤怠情報テーブル */
 
@@ -52,6 +57,7 @@
 }
 
 /* ユーザー一覧ページ */
+
 
 .right {
     text-align: right;
