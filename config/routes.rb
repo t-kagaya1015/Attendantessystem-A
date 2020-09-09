@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'approvals/new'
+
   root 'static_pages#top' 
   get '/signup', to: 'users#new'
+  post 'approvals/user_approvals'
 
  # ログイン機能
   get    '/login', to: 'sessions#new'
@@ -14,6 +17,7 @@ Rails.application.routes.draw do
       patch 'update_basic_info'
       get 'attendances/edit_one_month'
       patch 'attendances/update_one_month' # この行が追加対象です。
+      
     end
     resources :attendances, only: :update
   end
