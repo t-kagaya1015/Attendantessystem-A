@@ -1,0 +1,3 @@
+class AttendancseIog < ApplicationRecord
+    
+end
