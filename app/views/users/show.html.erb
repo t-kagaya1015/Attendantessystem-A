@@ -74,7 +74,7 @@
       <% @attendances.each do |day| %>
         <tr>
           
-          <td><%= link_to "残業申請", edit_overwork_reqest_user_url(@user), remote: true, class: "btn btn-primary btn-md", date: day.worked_on %></td>
+          <td></td><%= link_to "残業申請", user_attendance_edit_overwork_request_path(@user, day), remote: true, class: "btn btn-primary btn-md" %></td>							
           <td><%= l(day.worked_on, format: :short) %></td>
           <% if day.worked_on.wday == 6 %>
            <font color="Blue"><%= $days_of_the_week[day.worked_on.wday] %></font>

@@ -47,7 +47,7 @@ class AttendancesController < ApplicationController
         flash[:danger] = "無効な入力データがあった為、更新をキャンセルしました。"
         redirect_to attendances_edit_one_month_user_url(date: params[:date]) and return
        end
-     end
+  end
      
      
   
@@ -66,5 +66,6 @@ class AttendancesController < ApplicationController
         flash[:danger] = "編集権限がありません。"
         redirect_to(root_url)
       end
-    end 
-end
+    end
+  end
+end 
