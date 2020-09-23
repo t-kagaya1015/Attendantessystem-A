@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy, :edit_basic_info, :update_basic_info]
-  before_action :correct_user, only: [:edit, :update, :edit_basic_info]
+  before_action :correct_user, only: [:edit, :update, :edit_basic_info, :edit_overwork_requset, :update_overwork_request]
   before_action :admin_or_correct_user, only: [:edit, :update, :destroy, :edit_basic_info, :update_basic_info, :show]
   before_action :set_one_month, only: :show
 
@@ -73,6 +73,18 @@ class UsersController < ApplicationController
     end
     redirect_to users_url
   end
+  
+  def edit_overwork_requset
+    @day = Date.parse(params[:day])
+    @attendances = @user.attendances.find_by(worked_on: @day)
+  end 
+     
+     def update_overwork_request
+      @attendances = @user.attendances.find_by(worked_on: @day)
+      @user.update_attributes(overwork_params)
+      flash[:success] = "残業を申請しました。"
+      redairect_to @user
+     end 
 
 
   private
@@ -83,7 +95,7 @@ class UsersController < ApplicationController
 
     
     def user_params
-      params.require(:user).permit(:name, :email, :department, :password, :password_confirmationbasic_ti)
+      params.require(:user).permit(:name, :email, :epartment, :password, :password_confirmationbasic_ti)
     end
 
     def basic_info_params
