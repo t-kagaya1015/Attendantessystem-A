@@ -35,7 +35,7 @@
      <p>
      <%= link_to "勤怠修正ログ（承認済）",  attendances_edit_one_month_user_path(date: @first_day) , class: "btn btn-primary btn-sm" %>
      <% end %>
-     </p>  
+     </p>
 </div>
 <div>
   <thead>
@@ -73,9 +73,10 @@
    <tbody>
       <% @attendances.each do |day| %>
         <tr>
-          
-          <td></td><%= link_to "残業申請", user_attendance_edit_overwork_request_path(@user, day), remote: true, class: "btn btn-primary btn-md" %></td>							
+          <td><%= link_to "残業申請", user_attendance_edit_overwork_request_path(@user, day), remote: true, class: "btn btn-primary btn-md" %></td>							
+        
           <td><%= l(day.worked_on, format: :short) %></td>
+          <td>
           <% if day.worked_on.wday == 6 %>
            <font color="Blue"><%= $days_of_the_week[day.worked_on.wday] %></font>
           <% elsif day.worked_on.wday == 0 %>
@@ -106,6 +107,7 @@
           <td></td>
           <td></td>
           <td><%= day.note %></td>
+         </td>
         </tr>
       <% end %>
     </tbody>
